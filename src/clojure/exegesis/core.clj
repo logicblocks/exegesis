@@ -1,18 +1,27 @@
 (ns exegesis.core
   (:require
-    [clojure.reflect :refer [reflect]]))
+    [clojure.reflect :refer [reflect]])
+  (:import
+    [java.lang.reflect Method]
+    [java.lang.annotation Annotation]))
 
-(defn- as-map [annotation]
+(defn- as-map [^Annotation annotation]
   {:instance annotation})
 
-(defn- with-type [{:keys [instance] :as annotation}]
-  (let [type (.annotationType instance)]
+(defn- with-type
+  [{:keys [instance]
+    :as   ^Annotation annotation}]
+  (let [^Class type (.annotationType instance)]
     (assoc annotation :type type)))
 
-(defn- with-elements [{:keys [instance type] :as annotation}]
+(defn- with-elements
+  [{:keys [instance type]
+    :as   ^Annotation annotation}]
   (let [methods (.getDeclaredMethods type)
-        elements (set (map (fn [method] {:name  (symbol (.getName method))
-                                         :value (.invoke method instance (to-array []))})
+        elements (set (map
+                        (fn [^Method method]
+                          {:name  (symbol (.getName method))
+                           :value (.invoke method instance (to-array []))})
                         methods))]
     (assoc annotation :elements elements)))
 
