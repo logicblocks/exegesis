@@ -53,6 +53,6 @@ then, to obtain details of the annotations:
 
 ## License
 
-Copyright © 2017 FIXME
+Copyright © 2017 Toby Clemson
 
 Distributed under the MIT license.
