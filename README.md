@@ -42,7 +42,7 @@ then, to obtain details of the annotations for the type:
 ```clojure
 (require '[exegesis.core :refer [annotation-info]])
 
-(annotation-info :TestClass)
+(annotation-info TestClass)
 =>
 {:type {:annotations #{{:instance #object[com.sun.proxy.$Proxy1
                                           0xc544689
@@ -96,6 +96,15 @@ then, to obtain details of the annotations for the type:
                              :type exegesis.MethodAnnotationWithNoElements,
                              :elements #{}}},
              :parameters []}}}
+```
+
+## Development
+
+May be needed to get commit signing working.
+
+```bash
+git config --global user.signingkey [key-id]
+git config --global gpg.program [gpg-path]
 ```
 
 ## License
