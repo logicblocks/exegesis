@@ -1,4 +1,4 @@
-(defproject exegesis "0.1.0-SNAPSHOT"
+(defproject exegesis "0.1.0"
   :description "Simplify reflection of annotations on Java types."
   :url "http://github.com/tobyclemson/exegesis"
   :license {:name "The MIT License"
