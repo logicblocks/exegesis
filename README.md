@@ -37,18 +37,65 @@ public class TestClass {
 }
 ```
 
-then, to obtain details of the annotations:
+then, to obtain details of the annotations for the type:
 
 ```clojure
 (require '[exegesis.core :refer [annotation-info]])
 
-(annotation-info :class TestClass)
-=> [#{{:instance #object[com.sun.proxy.$Proxy5 0xc6b7151 "@ClassAnnotationWithElements(first=some-value)"]
-       :type ClassAnnotationWithElements
-       :elements #{{:name first :value "some-value"}}}
-      {:instance #object[com.sun.proxy.$Proxy5 0xc6b7151 "@ClassAnnotationWithNoElements"]
-       :type ClassAnnotationWithNoElements
-       :elements #{}}}]
+(annotation-info :TestClass)
+=>
+{:type {:annotations #{{:instance #object[com.sun.proxy.$Proxy1
+                                          0xc544689
+                                          "@exegesis.TypeAnnotationWithElements(first=some-value, second=some-default)"],
+                        :type exegesis.TypeAnnotationWithElements,
+                        :elements #{{:name second, :value "some-default"}
+                                    {:name first, :value "some-value"}}}
+                       {:instance #object[com.sun.proxy.$Proxy2
+                                          0x5820f14b
+                                          "@exegesis.TypeAnnotationWithNoElements()"],
+                        :type exegesis.TypeAnnotationWithNoElements,
+                        :elements #{}}}},
+ :methods #{{:name doThirdThing, :annotations #{}, :parameters []}
+            {:name doThingWithParameters,
+             :annotations #{},
+             :parameters [#{{:instance #object[com.sun.proxy.$Proxy6
+                                               0x7486565f
+                                               "@exegesis.ParameterAnnotationWithElements(priority=0, name=first)"],
+                             :type exegesis.ParameterAnnotationWithElements,
+                             :elements #{{:name priority, :value 0}
+                                         {:name name, :value "first"}}}
+                            {:instance #object[com.sun.proxy.$Proxy5
+                                               0x5c471ec5
+                                               "@exegesis.ParameterAnnotationWithNoElements()"],
+                             :type exegesis.ParameterAnnotationWithNoElements,
+                             :elements #{}}}
+                          #{{:instance #object[com.sun.proxy.$Proxy6
+                                               0x7f17b4a5
+                                               "@exegesis.ParameterAnnotationWithElements(priority=10, name=second)"],
+                             :type exegesis.ParameterAnnotationWithElements,
+                             :elements #{{:name priority, :value 10}
+                                         {:name name, :value "second"}}}}
+                          #{}]}
+            {:name doFirstThing,
+             :annotations #{{:instance #object[com.sun.proxy.$Proxy4
+                                               0x5a060e57
+                                               "@exegesis.MethodAnnotationWithElements(first=20, second=)"],
+                             :type exegesis.MethodAnnotationWithElements,
+                             :elements #{{:name first, :value 20}
+                                         {:name second, :value ""}}}
+                            {:instance #object[com.sun.proxy.$Proxy3
+                                               0x1c749fe6
+                                               "@exegesis.MethodAnnotationWithNoElements()"],
+                             :type exegesis.MethodAnnotationWithNoElements,
+                             :elements #{}}},
+             :parameters []}
+            {:name doSecondThing,
+             :annotations #{{:instance #object[com.sun.proxy.$Proxy3
+                                               0x78211b9b
+                                               "@exegesis.MethodAnnotationWithNoElements()"],
+                             :type exegesis.MethodAnnotationWithNoElements,
+                             :elements #{}}},
+             :parameters []}}}
 ```
 
 ## License

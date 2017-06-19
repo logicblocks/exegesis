@@ -8,4 +8,4 @@ import static java.lang.annotation.ElementType.TYPE;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(value={TYPE})
-public @interface ClassAnnotationWithNoElements {}
+public @interface TypeAnnotationWithNoElements {}

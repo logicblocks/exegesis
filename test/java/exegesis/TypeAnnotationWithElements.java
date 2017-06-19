@@ -8,7 +8,7 @@ import static java.lang.annotation.ElementType.TYPE;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(value={TYPE})
-public @interface ClassAnnotationWithElements {
+public @interface TypeAnnotationWithElements {
     String first() default "";
     String second() default "some-default";
 }

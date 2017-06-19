@@ -1,8 +1,10 @@
 package exegesis;
 
-@ClassAnnotationWithElements(first = "some-value")
-@ClassAnnotationWithNoElements
+@TypeAnnotationWithElements(first = "some-value")
+@TypeAnnotationWithNoElements
 public class TestClass {
+    private String thing;
+
     @MethodAnnotationWithNoElements
     @MethodAnnotationWithElements(first = 20)
     public void doFirstThing() {}
