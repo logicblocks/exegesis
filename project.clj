@@ -6,7 +6,4 @@
   :dependencies [[org.clojure/clojure "1.8.0"]]
   :source-paths ["src/clojure"]
   :test-paths ["test/clojure"]
-  :java-source-paths ["src/java" "test/java"]
-  :deploy-repositories [["releases" {:url     :clojars
-                                     :creds   :gpg
-                                     :signing {:gpg-key "44CE9D82"}}]])
+  :java-source-paths ["src/java" "test/java"])
