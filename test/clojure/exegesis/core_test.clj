@@ -77,4 +77,8 @@
                   :type     ParameterAnnotationWithElements
                   :elements #{{:name 'name :value "second"}
                               {:name 'priority :value 10}}}}
-               #{}]))))))
+               #{}])))))
+
+  (let [result (annotation-info (TestClass.))]
+    (testing "for an object not a class"
+      (is (not (nil? (get-in result [:type :annotations])))))))
