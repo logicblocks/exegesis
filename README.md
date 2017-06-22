@@ -41,6 +41,7 @@ then, to obtain details of the annotations for the type:
 
 ```clojure
 (require '[exegesis.core :refer [annotation-info]])
+(import '[TestClass]
 
 (annotation-info TestClass)
 =>
