@@ -6,7 +6,7 @@ Clojure library for interrogating Java types for annotation information.
 
 Add the following dependency to your `project.clj` file:
 
-    [exegesis "0.1.0"]
+    [exegesis "0.2.0"]
 
 ## Usage
 
