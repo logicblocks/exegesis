@@ -6,7 +6,7 @@
              parameter-annotations
              annotation-type
              declared-methods
-             methods
+             declared-fields
              name
              invoke]])
   (:import
@@ -56,6 +56,13 @@
 (defn- methods-annotation-info [type]
   (set (map method-annotation-info (declared-methods type))))
 
+(defn- field-annotation-info [field]
+  {:name        (symbol (name field))
+   :annotations (->annotation-details (annotations field))})
+
+(defn- fields-annotation-info [type]
+  (set (map field-annotation-info (declared-fields type))))
+
 (defn- context-class
   [obj]
   (if (class? obj) obj (type obj)))
@@ -63,4 +70,5 @@
 (defn annotation-info [type-or-object]
   (let [class (context-class type-or-object)]
     {:type    (type-annotation-info class)
+     :fields  (fields-annotation-info class)
      :methods (methods-annotation-info class)}))

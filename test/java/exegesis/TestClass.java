@@ -3,18 +3,28 @@ package exegesis;
 @TypeAnnotationWithElements(first = "some-value")
 @TypeAnnotationWithNoElements
 public class TestClass {
-    private String thing;
+    @FieldAnnotationWithNoElements
+    private String thing1;
+
+    @FieldAnnotationWithNoElements
+    @FieldAnnotationWithElements(first = 20)
+    public Integer thing2;
+
+    @FieldAnnotationWithElements(first = 30)
+    protected Float thing3;
+
+    Boolean thing4;
 
     @MethodAnnotationWithNoElements
     @MethodAnnotationWithElements(first = 20)
-    public void doFirstThing() {}
+    protected void doFirstThing() {}
 
     @MethodAnnotationWithNoElements
     public void doSecondThing() {}
 
-    public void doThirdThing() {}
+    private void doThirdThing() {}
 
-    public void doThingWithParameters(
+    void doThingWithParameters(
             @ParameterAnnotationWithNoElements
             @ParameterAnnotationWithElements(name = "first")
             String first,

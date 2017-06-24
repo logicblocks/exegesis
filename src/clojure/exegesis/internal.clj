@@ -29,11 +29,14 @@
 (defn declared-methods [type]
   (.getDeclaredMethods type))
 
-(defn methods [type]
-  (.getMethods type))
+(defn declared-method [type name & args]
+  (.getDeclaredMethod type name (into-array Class args)))
 
-(defn method [type name & args]
-  (.getMethod type name (into-array Class args)))
+(defn declared-fields [type]
+  (.getDeclaredFields type))
+
+(defn declared-field [type name]
+  (.getDeclaredField type name))
 
 (defn name [method]
   (.getName method))

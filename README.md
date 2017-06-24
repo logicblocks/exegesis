@@ -13,19 +13,31 @@ Add the following dependency to your `project.clj` file:
 Given an annotated Java class like the following:
 
 ```java
-@ClassAnnotationWithElements(first = "some-value")
-@ClassAnnotationWithNoElements
+@TypeAnnotationWithElements(first = "some-value")
+@TypeAnnotationWithNoElements
 public class TestClass {
+    @FieldAnnotationWithNoElements
+    private String thing1;
+
+    @FieldAnnotationWithNoElements
+    @FieldAnnotationWithElements(first = 20)
+    public Integer thing2;
+
+    @FieldAnnotationWithElements(first = 30)
+    protected Float thing3;
+
+    Boolean thing4;
+
     @MethodAnnotationWithNoElements
     @MethodAnnotationWithElements(first = 20)
-    public void doFirstThing() {}
+    protected void doFirstThing() {}
 
     @MethodAnnotationWithNoElements
     public void doSecondThing() {}
 
-    public void doThirdThing() {}
+    private void doThirdThing() {}
 
-    public void doThingWithParameters(
+    void doThingWithParameters(
             @ParameterAnnotationWithNoElements
             @ParameterAnnotationWithElements(name = "first")
             String first,
@@ -45,58 +57,81 @@ then, to obtain details of the annotations for the type:
 
 (annotation-info TestClass)
 =>
-{:type {:annotations #{{:instance #object[com.sun.proxy.$Proxy1
-                                          0xc544689
-                                          "@exegesis.TypeAnnotationWithElements(first=some-value, second=some-default)"],
-                        :type exegesis.TypeAnnotationWithElements,
-                        :elements #{{:name second, :value "some-default"}
-                                    {:name first, :value "some-value"}}}
-                       {:instance #object[com.sun.proxy.$Proxy2
-                                          0x5820f14b
-                                          "@exegesis.TypeAnnotationWithNoElements()"],
-                        :type exegesis.TypeAnnotationWithNoElements,
-                        :elements #{}}}},
- :methods #{{:name doThirdThing, :annotations #{}, :parameters []}
-            {:name doThingWithParameters,
-             :annotations #{},
-             :parameters [#{{:instance #object[com.sun.proxy.$Proxy6
-                                               0x7486565f
-                                               "@exegesis.ParameterAnnotationWithElements(priority=0, name=first)"],
-                             :type exegesis.ParameterAnnotationWithElements,
-                             :elements #{{:name priority, :value 0}
-                                         {:name name, :value "first"}}}
-                            {:instance #object[com.sun.proxy.$Proxy5
-                                               0x5c471ec5
-                                               "@exegesis.ParameterAnnotationWithNoElements()"],
-                             :type exegesis.ParameterAnnotationWithNoElements,
-                             :elements #{}}}
-                          #{{:instance #object[com.sun.proxy.$Proxy6
-                                               0x7f17b4a5
-                                               "@exegesis.ParameterAnnotationWithElements(priority=10, name=second)"],
-                             :type exegesis.ParameterAnnotationWithElements,
-                             :elements #{{:name priority, :value 10}
-                                         {:name name, :value "second"}}}}
-                          #{}]}
-            {:name doFirstThing,
-             :annotations #{{:instance #object[com.sun.proxy.$Proxy4
-                                               0x5a060e57
-                                               "@exegesis.MethodAnnotationWithElements(first=20, second=)"],
-                             :type exegesis.MethodAnnotationWithElements,
-                             :elements #{{:name first, :value 20}
-                                         {:name second, :value ""}}}
-                            {:instance #object[com.sun.proxy.$Proxy3
-                                               0x1c749fe6
-                                               "@exegesis.MethodAnnotationWithNoElements()"],
-                             :type exegesis.MethodAnnotationWithNoElements,
-                             :elements #{}}},
-             :parameters []}
-            {:name doSecondThing,
-             :annotations #{{:instance #object[com.sun.proxy.$Proxy3
-                                               0x78211b9b
-                                               "@exegesis.MethodAnnotationWithNoElements()"],
-                             :type exegesis.MethodAnnotationWithNoElements,
-                             :elements #{}}},
-             :parameters []}}}
+{:type
+ {:annotations
+  #{{:instance
+     #object[com.sun.proxy.$Proxy2 0x1a003b32 "@exegesis.TypeAnnotationWithNoElements()"],
+     :type exegesis.TypeAnnotationWithNoElements,
+     :elements #{}}
+    {:instance
+     #object[com.sun.proxy.$Proxy1 0x449128f7 "@exegesis.TypeAnnotationWithElements(first=some-value, second=some-default)"],
+     :type exegesis.TypeAnnotationWithElements,
+     :elements
+     #{{:name second, :value "some-default"}
+       {:name first, :value "some-value"}}}}},
+ :fields
+ #{{:name thing2,
+    :annotations
+    #{{:instance
+       #object[com.sun.proxy.$Proxy8 0x6f40b2d7 "@exegesis.FieldAnnotationWithElements(first=20, second=)"],
+       :type exegesis.FieldAnnotationWithElements,
+       :elements #{{:name first, :value 20} {:name second, :value ""}}}
+      {:instance
+       #object[com.sun.proxy.$Proxy7 0x452b0711 "@exegesis.FieldAnnotationWithNoElements()"],
+       :type exegesis.FieldAnnotationWithNoElements,
+       :elements #{}}}}
+   {:name thing3,
+    :annotations
+    #{{:instance
+       #object[com.sun.proxy.$Proxy8 0x700c3c05 "@exegesis.FieldAnnotationWithElements(first=30, second=)"],
+       :type exegesis.FieldAnnotationWithElements,
+       :elements
+       #{{:name second, :value ""} {:name first, :value 30}}}}}
+   {:name thing1,
+    :annotations
+    #{{:instance
+       #object[com.sun.proxy.$Proxy7 0x3db862ff "@exegesis.FieldAnnotationWithNoElements()"],
+       :type exegesis.FieldAnnotationWithNoElements,
+       :elements #{}}}}
+   {:name thing4, :annotations #{}}},
+ :methods
+ #{{:name doThirdThing, :annotations #{}, :parameters []}
+   {:name doThingWithParameters,
+    :annotations #{},
+    :parameters
+    [#{{:instance
+        #object[com.sun.proxy.$Proxy6 0x77176cdd "@exegesis.ParameterAnnotationWithElements(priority=0, name=first)"],
+        :type exegesis.ParameterAnnotationWithElements,
+        :elements
+        #{{:name priority, :value 0} {:name name, :value "first"}}}
+       {:instance
+        #object[com.sun.proxy.$Proxy5 0x73155d90 "@exegesis.ParameterAnnotationWithNoElements()"],
+        :type exegesis.ParameterAnnotationWithNoElements,
+        :elements #{}}}
+     #{{:instance
+        #object[com.sun.proxy.$Proxy6 0x71075c64 "@exegesis.ParameterAnnotationWithElements(priority=10, name=second)"],
+        :type exegesis.ParameterAnnotationWithElements,
+        :elements
+        #{{:name priority, :value 10} {:name name, :value "second"}}}}
+     #{}]}
+   {:name doFirstThing,
+    :annotations
+    #{{:instance
+       #object[com.sun.proxy.$Proxy4 0x53e5811e "@exegesis.MethodAnnotationWithElements(first=20, second=)"],
+       :type exegesis.MethodAnnotationWithElements,
+       :elements #{{:name first, :value 20} {:name second, :value ""}}}
+      {:instance
+       #object[com.sun.proxy.$Proxy3 0x8fd2c52 "@exegesis.MethodAnnotationWithNoElements()"],
+       :type exegesis.MethodAnnotationWithNoElements,
+       :elements #{}}},
+    :parameters []}
+   {:name doSecondThing,
+    :annotations
+    #{{:instance
+       #object[com.sun.proxy.$Proxy3 0x7878440d "@exegesis.MethodAnnotationWithNoElements()"],
+       :type exegesis.MethodAnnotationWithNoElements,
+       :elements #{}}},
+    :parameters []}}}
 ```
 
 ## Development
