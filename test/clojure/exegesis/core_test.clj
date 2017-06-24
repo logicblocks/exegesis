@@ -33,8 +33,6 @@
                :elements #{{:name 'first :value "some-value"}
                            {:name 'second :value "some-default"}}}})))
 
-    (pprint result)
-
     (testing "field annotations"
       (let [first-field (declared-field TestClass "thing1")
             second-field (declared-field TestClass "thing2")
