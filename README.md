@@ -6,7 +6,7 @@ Clojure library for interrogating Java types for annotation information.
 
 Add the following dependency to your `project.clj` file:
 
-    [exegesis "0.2.0"]
+    [exegesis "0.4.0"]
 
 ## Usage
 
@@ -132,15 +132,6 @@ then, to obtain details of the annotations for the type:
        :type exegesis.MethodAnnotationWithNoElements,
        :elements #{}}},
     :parameters []}}}
-```
-
-## Development
-
-May be needed to get commit signing working.
-
-```bash
-git config --global user.signingkey [key-id]
-git config --global gpg.program [gpg-path]
 ```
 
 ## License
