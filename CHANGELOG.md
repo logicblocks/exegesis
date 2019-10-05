@@ -4,6 +4,8 @@ change log follows the conventions of
 [keepachangelog.com](http://keepachangelog.com/).
 
 ## [Unreleased]
+
+## [0.4.0] — 2019-10-05
 ### Changed
 - `exegesis` is now released under the `io.logicblocks` organisation.
 
@@ -11,5 +13,6 @@ change log follows the conventions of
 Initial release.
 
 
-[Unreleased]: https://github.com/your-name/exegesis/compare/0.3.0...HEAD
 [0.3.0]: https://github.com/your-name/exegesis/compare/0.1.0...0.3.0
+[0.4.0]: https://github.com/your-name/exegesis/compare/0.3.0...0.4.0
+[Unreleased]: https://github.com/your-name/exegesis/compare/0.4.0...HEAD
