@@ -1,12 +1,16 @@
 # exegesis
 
+[![Clojars Project](https://img.shields.io/clojars/v/io.logicblocks/exegesis.svg)](https://clojars.org/io.logicblocks/exegesis)
+[![Clojars Downloads](https://img.shields.io/clojars/dt/io.logicblocks/exegesis.svg)](https://clojars.org/io.logicblocks/exegesis)
+[![GitHub Contributors](https://img.shields.io/github/contributors-anon/logicblocks/exegesis.svg)](https://github.com/logicblocks/exegesis/graphs/contributors)
+
 Clojure library for interrogating Java types for annotation information.
 
 ## Installation
 
 Add the following dependency to your `project.clj` file:
 
-    [exegesis "0.3.0"]
+    [io.logicblocks/exegesis "0.3.0"]
 
 ## Usage
 
