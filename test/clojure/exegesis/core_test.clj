@@ -8,15 +8,15 @@
              parameter-annotation
              declared-method
              declared-field]])
-  (:import [exegesis
-            TestClass
-            TypeAnnotationWithNoElements
-            TypeAnnotationWithElements
-            MethodAnnotationWithNoElements
-            MethodAnnotationWithElements
-            ParameterAnnotationWithElements
-            ParameterAnnotationWithNoElements FieldAnnotationWithNoElements]
-    [javax.jws WebService]))
+  (:import
+    [exegesis TestClass
+              TypeAnnotationWithNoElements
+              TypeAnnotationWithElements
+              MethodAnnotationWithNoElements
+              MethodAnnotationWithElements
+              ParameterAnnotationWithElements
+              ParameterAnnotationWithNoElements
+              FieldAnnotationWithNoElements]))
 
 (defn find-by-name [coll name]
   (some (fn [obj] (and (= (:name obj) name) obj)) coll))
