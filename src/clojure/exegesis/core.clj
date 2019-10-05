@@ -46,7 +46,7 @@
   {:annotations (->annotation-details (annotations type))})
 
 (defn- parameters-annotation-info [method]
-  (into [] (map ->annotation-details (parameter-annotations method))))
+  (vec (map ->annotation-details (parameter-annotations method))))
 
 (defn- method-annotation-info [method]
   {:name        (symbol (name method))

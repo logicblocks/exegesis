@@ -16,7 +16,7 @@
             MethodAnnotationWithElements
             ParameterAnnotationWithElements
             ParameterAnnotationWithNoElements FieldAnnotationWithNoElements]
-           [javax.jws WebService]))
+    [javax.jws WebService]))
 
 (defn find-by-name [coll name]
   (some (fn [obj] (and (= (:name obj) name) obj)) coll))
