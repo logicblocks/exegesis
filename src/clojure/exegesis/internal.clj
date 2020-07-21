@@ -1,8 +1,8 @@
 (ns exegesis.internal
   (:refer-clojure :exclude [name methods])
   (:import
-    [java.lang.reflect Method]
-    [java.lang.annotation Annotation]))
+   [java.lang.reflect Method]
+   [java.lang.annotation Annotation]))
 
 (defn annotation [type annotation-type]
   (.getAnnotation type annotation-type))

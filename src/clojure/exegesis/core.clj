@@ -1,17 +1,17 @@
 (ns exegesis.core
   (:refer-clojure :exclude [name methods])
   (:require
-    [exegesis.internal
-     :refer [annotations
-             parameter-annotations
-             annotation-type
-             declared-methods
-             declared-fields
-             name
-             invoke]])
+   [exegesis.internal
+    :refer [annotations
+            parameter-annotations
+            annotation-type
+            declared-methods
+            declared-fields
+            name
+            invoke]])
   (:import
-    [java.lang.reflect Method]
-    [java.lang.annotation Annotation]))
+   [java.lang.reflect Method]
+   [java.lang.annotation Annotation]))
 
 (defn- as-map [^Annotation annotation]
   {:instance annotation})

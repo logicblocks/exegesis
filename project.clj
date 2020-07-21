@@ -80,6 +80,9 @@
                      defrecord [[:block 1] [:inner 1]]
                      deftype   [[:block 1] [:inner 1]]}}
 
+  :bikeshed {:name-collisions false
+             :var-redefs false}
+
   :eastwood {:config-files ["config/linter.clj"]}
 
   :deploy-repositories

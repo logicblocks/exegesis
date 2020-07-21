@@ -1,22 +1,22 @@
 (ns exegesis.core-test
   (:require
-    [clojure.test :refer :all]
-    [clojure.pprint :refer [pprint]]
-    [exegesis.core :refer [annotation-info]]
-    [exegesis.internal
-     :refer [annotation
-             parameter-annotation
-             declared-method
-             declared-field]])
+   [clojure.test :refer :all]
+   [clojure.pprint :refer [pprint]]
+   [exegesis.core :refer [annotation-info]]
+   [exegesis.internal
+    :refer [annotation
+            parameter-annotation
+            declared-method
+            declared-field]])
   (:import
-    [exegesis TestClass
-              TypeAnnotationWithNoElements
-              TypeAnnotationWithElements
-              MethodAnnotationWithNoElements
-              MethodAnnotationWithElements
-              ParameterAnnotationWithElements
-              ParameterAnnotationWithNoElements
-              FieldAnnotationWithNoElements]))
+   [exegesis TestClass
+    TypeAnnotationWithNoElements
+    TypeAnnotationWithElements
+    MethodAnnotationWithNoElements
+    MethodAnnotationWithElements
+    ParameterAnnotationWithElements
+    ParameterAnnotationWithNoElements
+    FieldAnnotationWithNoElements]))
 
 (defn find-by-name [coll name]
   (some (fn [obj] (and (= (:name obj) name) obj)) coll))
