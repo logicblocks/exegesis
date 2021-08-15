@@ -1,4 +1,4 @@
-(defproject io.logicblocks/exegesis "0.4.3-RC1"
+(defproject io.logicblocks/exegesis "0.4.3-RC2"
   :description "Simplify reflection of annotations on Java types."
   :url "http://github.com/logicblocks/exegesis"
 
