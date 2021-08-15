@@ -140,6 +140,6 @@ then, to obtain details of the annotations for the type:
 
 ## License
 
-Copyright © 2017 Toby Clemson
+Copyright &copy; 2021 LogicBlocks
 
 Distributed under the MIT license.
